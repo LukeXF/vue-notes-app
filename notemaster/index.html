@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Note Master</title>
+	<script src="https://unpkg.com/vue"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css"
+	      integrity="sha256-Md8eaeo67OiouuXAi8t/Xpd8t2+IaJezATVTWbZqSOw=" crossorigin="anonymous"/>
+	<link rel="stylesheet" href="http://davidtkatz.com/public_css/noteMaster.css">
+
+</head>
+<body>
+<div id="app">
+	<h3>{{title}}</h3>
+	<div class="form">
+		<div class="form-group">
+			<div class="form-group">
+				<label>Note Title</label>
+				<input class=form-control type="text" v-model="note.title">
+			</div>
+		</div>
+		<div class="form-group">
+			<label>Note text</label>
+			<textarea name="" class="form-control" id="" v-model="note.text"></textarea>
+		</div>
+		<button class="btn btn-primary" @click="addNote">submit</button>
+	</div>
+</div>
+<script>
+	var app = new Vue({
+		el: '#app',
+		data: {
+			title: 'Notemaster',
+			note: {
+				title: '',
+				text: ''
+			},
+			notes: [
+				{
+					title: 'Visted Hawaii',
+					text: 'I loved the beaches ;)',
+					date: new Date(Date.now()).toLocaleString()
+				}
+			]
+		},
+		methods: {
+			addNote() {
+				let {text, title} = this.note;
+				this.notes.push({
+					text,
+					title,
+					date: new Date(Date.now()).toLocaleString()
+				})
+			}
+		}
+	})
+</script>
+</body>
+</html>
