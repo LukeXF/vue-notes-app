@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue2 App3</title>
+	<script src="https://unpkg.com/vue"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css"
+	      integrity="sha256-Md8eaeo67OiouuXAi8t/Xpd8t2+IaJezATVTWbZqSOw=" crossorigin="anonymous"/>
+</head>
+<body>
+<div id="app">
+	<div v-bind:title="randNum" v-if="shown">Hover over me for your random number</div>
+</div>
+<script>
+	var app = new Vue({
+		el: "#app",
+		data: {
+			text: "Hello, World!",
+			randNum: Math.floor(Math.random() * 50),
+			shown: false
+		}
+	});
+</script>
+</body>
+</html>app

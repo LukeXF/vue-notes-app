@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vue2 App4</title>
+	<script src="https://unpkg.com/vue"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css"
+	      integrity="sha256-Md8eaeo67OiouuXAi8t/Xpd8t2+IaJezATVTWbZqSOw=" crossorigin="anonymous"/>
+</head>
+<body>
+<div class="container p-5">
+	hi
+	<div id="app">
+		<button class="btn-primary" v-on:click="reveal">Reveal the secret number</button>
+	</div>
+</div>
+<script>
+	var app = new Vue({
+		el: "#app",
+		data: {
+			secretNumber: Math.floor(Math.random() * 100)
+		},
+		methods: {
+			reveal() {
+				alert(`Here's the secret number: ${this.secretNumber}`)
+			}
+		}
+	});
+</script>
+</body>
+</html>
